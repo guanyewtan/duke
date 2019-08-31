@@ -26,6 +26,8 @@ public class Duke {
             int indexOfSpace = typing.indexOf(" ");
             String instruction = (indexOfSpace != -1) ? typing.substring(0, indexOfSpace) : typing;
             
+            
+            
             if (instruction.equals("todo")) {
                 if (indexOfSpace == -1) {
                     System.out.println(line + "☹ OOPS!!! The description of a todo cannot be empty.\n" + line);
@@ -47,6 +49,7 @@ public class Duke {
             }
             
             
+            
             else if (instruction.equals("deadline")) {
                 int indexOfSlash = typing.indexOf("/by");
                 if (indexOfSlash == -1)
@@ -66,7 +69,6 @@ public class Duke {
                     System.out.println("Now you have " + tasklist.size() + " task(s) in the list.\n" + line);
                     Editor p = new Editor("D", description, time);
                     p.addToFile();
-                    
                 }
                 catch (StringIndexOutOfBoundsException e) {
                     System.out.println(line + "☹ OOPS!!! Please enter a valid deadline input.\n" + line);
@@ -78,6 +80,7 @@ public class Duke {
                     System.out.println(line + "☹ OOPS!!! Something's wrong with the file!\n" + line);
                 }
             }
+            
             
             
             else if (instruction.equals("event")) {
@@ -111,6 +114,7 @@ public class Duke {
             }
             
             
+            
             else if (instruction.equals("done")) {
                 try {
                     int temp = Integer.parseInt(typing.substring(5));
@@ -127,6 +131,7 @@ public class Duke {
                     System.out.println(line + "☹ OOPS!!! Something's wrong with the file!\n" + line);
                 }
             }
+            
             
             
             else if (instruction.equals("delete")) {
@@ -147,14 +152,17 @@ public class Duke {
             }
             
             
+            
             else if (instruction.equals("clear"))
             {
                 System.out.println(line + "List has been cleared!\n" + line);
                 Editor p = new Editor();
                 p.clear();
+                tasklist.clear();
             }
             
-
+            
+            
             else if (instruction.equals("list")) {
                 System.out.println(line + "Here are the tasks in your list: ");
                 for (int i = 0; i < tasklist.size(); i += 1) {
@@ -163,6 +171,22 @@ public class Duke {
                 }
                 System.out.print(line);
             }
+            
+            
+
+            else if (instruction.equals("find"))
+            {
+                Editor p = new Editor();
+                ArrayList<Integer> found = p.find(typing.substring(5));
+
+                System.out.println(line + "Here are the matching tasks in your list:");
+                for (int i = 1; i <= found.size(); i += 1)
+                {
+                    System.out.println(i + ". " + tasklist.get(found.get(i - 1)));
+                }
+                System.out.println(line);
+            }
+            
             
             
             else if (instruction.equals("bye")) {
