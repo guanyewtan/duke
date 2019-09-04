@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class Duke {
     /**
-     * Why checkstyle liddat.
+     * To update: DukeException, Textfile update when starting build
      */
     
     public static void main(String[] args) throws IOException {

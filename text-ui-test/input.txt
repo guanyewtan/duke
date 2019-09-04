@@ -1,0 +1,16 @@
+blah
+todo Finish the duke testing
+event Submit Duke assignment /at 06-09-2019 2359
+deadline Duke assignment submission /by  31-12-2020
+deadline Duke assignment submission /by  31-12-2020 1234
+list
+done 4
+done 3
+list
+done 1
+done 2
+list
+find assignment
+clear
+list
+bye
