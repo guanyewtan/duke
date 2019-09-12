@@ -22,7 +22,7 @@ public class Storage {
                 content = content + line + System.lineSeparator();
                 line = reader.readLine();
             }
-            
+            //System.out.println(content);
             return content;
         }
         catch (FileNotFoundException e){

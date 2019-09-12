@@ -53,7 +53,7 @@ public class Parser {
                 if (description.equals("")) {
                     throw new DukeException("Empty description");
                 }
-                else if (!byOrAt.equals("at")) {
+                else if (!byOrAt.equals("/at")) {
                     throw new DukeException("Not /at");
                 }
                 else {
@@ -65,7 +65,7 @@ public class Parser {
                 if (description.equals("")) {
                     throw new DukeException("Empty description");
                 }
-                else if (!byOrAt.equals("by")) {
+                else if (!byOrAt.equals("/by")) {
                     throw new DukeException("Not /by");
                 }
                 else {
@@ -86,6 +86,14 @@ public class Parser {
                 return new FindCommand(description);
             }
             
+            else if (instruction.equals("delete")) {
+                int num = Integer.parseInt(description);
+                return new DeleteCommand(num);
+            }
+            
+            else if (instruction.equals("list")) {
+                return new ListCommand();
+            }
             
             throw new DukeException("BadCommand");
         }

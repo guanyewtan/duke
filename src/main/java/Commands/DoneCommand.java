@@ -11,7 +11,7 @@ public class DoneCommand extends Command {
     private int number;
     
     public DoneCommand(int number) throws DukeException {
-    
+        this.number = number;
     }
     
     @Override

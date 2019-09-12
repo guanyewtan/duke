@@ -30,36 +30,41 @@ public class Ui {
     }
     
     public void addCommand(TaskList tasks) {
-        System.out.print(line +
-                "Got it. I've added this task: \n" +
-                tasks.last() +
-                "Now you have" + tasks.size() + "tasks in the list.\n" +
-                line);
+        System.out.print("Got it. I've added this task: \n" +
+                tasks.last() + "\n" +
+                "Now you have " + tasks.size() + " tasks in the list.\n");
     }
     
     public void deleteCommand(TaskList tasks, int number) {
-        System.out.print(line +
-                "Noted. I've removed this task:  \n" +
-                tasks.get(number) +
-                "Now you have" + tasks.size() + "tasks in the list.\n" +
-                line);
+        System.out.print("Noted. I've removed this task:  \n" +
+                tasks.getTask(number) + "\n" +
+                "Now you have " + (tasks.size() - 1) + " tasks in the list.\n");
     }
     
     public void doneCommand(TaskList tasks, int number) {
-        System.out.print(line +
-                "Nice! I've marked this task as done:   \n" +
-                tasks.get(number) +
-                line);
+        System.out.print("Nice! I've marked this task as done:   \n" +
+                tasks.getTask(number) + "\n");
     }
     
     public void find(TaskList tasks, Storage storage, ArrayList<Integer> found) {
-        System.out.println(line + "Here are the matching tasks in your list:");
+        System.out.println("Here are the matching tasks in your list:");
         for (int i = 1; i <= found.size(); i += 1)
         {
-            System.out.println(i + ". " + tasks.get(found.get(i - 1)));
+            System.out.println(i + ". " + tasks.getTask(found.get(i - 1)));
         }
-        System.out.println(line);
         
+    }
+    
+    public void list(TaskList tasks) {
+        System.out.println("Here are the tasks in your list:");
+        for (int i = 1; i <= tasks.size(); i += 1)
+        {
+            System.out.println(i + ". " + tasks.getTask(i));
+        }
+    }
+    
+    public void byeCommand() {
+        System.out.println("Bye. Hope to see you again soon!\n");
     }
     
     public void showLoadingError() {

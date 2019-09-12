@@ -40,9 +40,13 @@ public class TaskList {
     }
     
     public TaskList (String content) throws DukeException {
+        if (content.equals(""))
+        {
+            throw new DukeException("No content");
+        }
         String[] lines = content.split(System.getProperty("line.separator"));
         for (String i : lines) {
-            String[] word = i.split("|");
+            String[] word = i.split("\\|");
             if (word[0].equals("T")) {
                 Task newTask = new Task(word[0], word[1], word[2]);
                 tasklist.add(newTask);
@@ -67,7 +71,7 @@ public class TaskList {
         return tasklist.get(tasklist.size() - 1);
     }
     
-    public TaskList.Task get (int number) {
+    public TaskList.Task getTask (int number) {
         return tasklist.get(number - 1);
     }
     

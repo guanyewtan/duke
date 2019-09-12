@@ -1,3 +1,9 @@
+/**
+ * Add exceptions to the /at and /by
+ * Complete the showerror method
+ */
+
+
 import Processes.*;
 import Commands.*;
 
@@ -19,28 +25,28 @@ public class Duke {
         }
     }
     
-//    public void run() {
-//        ui.showWelcome();
-//        boolean isExit = false;
-//        while (!isExit) {
-//            try {
-//                String fullCommand = ui.readCommand();
-//                ui.showLine();
-//                Command c = Parser.parse(fullCommand);
-//                c.execute(tasks, ui, storage);
-//                isExit = c.isExit();
-//            }
-//            catch (DukeException e) {
-//                ui.showError(e.getMessage());
-//            }
-//            finally {
-//                ui.showLine();
-//            }
-//        }
-//    }
-//
+    public void run() {
+        ui.showWelcome();
+        boolean isExit = false;
+        while (!isExit) {
+            try {
+                String fullCommand = ui.readCommand();
+                ui.showLine();
+                Command c = Parser.parse(fullCommand);
+                c.execute(tasks, ui, storage);
+                isExit = c.isExit();
+            }
+            catch (DukeException e) {
+                //ui.showError(e.getMessage());
+            }
+            finally {
+                ui.showLine();
+            }
+        }
+    }
+
     public static void main(String[] args) {
-       // new Duke("data/tasks.txt").run();
-        new Duke("data/tasks.txt");
+        new Duke("data/tasks.txt").run();
+        //new Duke("data/tasks.txt");
     }
 }
