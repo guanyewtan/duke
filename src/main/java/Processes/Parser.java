@@ -6,6 +6,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * This class processes the input that is entered by the user.
+ */
+
 public class Parser {
     private static String instruction;
     private static String description = "";
@@ -15,6 +19,13 @@ public class Parser {
     
     public Parser() {
     };
+    
+    /**
+     * This method breaks down the user input into smaller parts and processes the instructions.
+     * @param fullCommand The full command as entered by the user.
+     * @return The command that will run depending on what the user enters.
+     * @throws DukeException The exception that is thrown.
+     */
     
     public static Command parse(String fullCommand) throws DukeException {
         try {
@@ -100,6 +111,9 @@ public class Parser {
         
         catch (ParseException e) {
             throw new DukeException(e);
+        }
+        catch (NullPointerException e) {
+            throw new DukeException("/by or /at");
         }
     
     }

@@ -1,6 +1,5 @@
 /**
- * Add exceptions to the /at and /by
- * Complete the showerror method
+ * public static void main is here.
  */
 
 
@@ -25,6 +24,10 @@ public class Duke {
         }
     }
     
+    /**
+     * Runs all the processes.
+     */
+    
     public void run() {
         ui.showWelcome();
         boolean isExit = false;
@@ -44,9 +47,14 @@ public class Duke {
             }
         }
     }
-
+    
+    /**
+     * The main() function, that runs the function "run" above.
+     *
+     * @param args
+     */
+    
     public static void main(String[] args) {
         new Duke("data/tasks.txt").run();
-        //new Duke("data/tasks.txt");
     }
 }
