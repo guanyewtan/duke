@@ -1,4 +1,6 @@
-public class Deadline extends Task {
+package Processes;
+
+public class Deadline extends TaskOld {
 
     protected String by;
 

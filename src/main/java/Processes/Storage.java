@@ -1,65 +1,43 @@
+package Processes;
+
 import java.io.*;
 import java.util.ArrayList;
 
-public class Editor {
-    protected String type;
-    protected String description;
-    protected String date = "";
-    public String line = "____________________________________________________________\n";
-    public String directory = "C:\\Users\\GY\\Downloads\\CS2113T\\duke\\data\\duke.txt";
+public class Storage {
+    String filepath;
     
-    public Editor () {
-    
+    public Storage (String filepath)
+    {
+        this.filepath = filepath;
     }
     
-    public Editor(String type, String description) throws IOException {
-        this.type = type;
-        this.description = description;
-    }
+    public String load() throws DukeException {
+        try {
+            String content = "";
+            File fileToBeModified = new File(filepath);
+            BufferedReader reader = new BufferedReader(new FileReader(fileToBeModified));
     
-    public Editor(String type, String description, String date) throws IOException {
-        this.type = type;
-        this.description = description;
-        this.date = date;
-    }
-    
-    public void addToFile () throws IOException {
-        BufferedWriter update = new BufferedWriter(new FileWriter(directory, true));
-        String fileContent = type + "|false|" + description + "|" + date + "\n";
-        update.append(fileContent);
-        update.close();
-    }
-    
-    public void markAsDone (int taskNo) throws IOException {
-        String content = "";
-        File fileToBeModified = new File(directory);
-        BufferedReader reader = new BufferedReader(new FileReader(fileToBeModified));
-        
-        int counter = 1;
-        String line = reader.readLine();
-        while (line != null) {
-            if (counter == taskNo)
-            {
-                line = line.replace("false", "true");
+            String line = reader.readLine();
+            while (line != null) {
+                content = content + line + System.lineSeparator();
+                line = reader.readLine();
             }
-            content = content + line + System.lineSeparator();
-            line = reader.readLine();
-            counter += 1;
+            
+            return content;
         }
-        
-        BufferedWriter writer = new BufferedWriter(new FileWriter(fileToBeModified));
-        writer.write(content);
-        
-        reader.close();
-        writer.close();
+        catch (FileNotFoundException e){
+            throw new DukeException("FileNotFound");
+        }
+        catch (IOException e) {
+            throw new DukeException("IOException");
+        }
     }
     
-    
-    public void remove(int taskNo) throws IOException {
+    public void delete(int taskNo) throws IOException {
         String content = "";
-        File fileToBeModified = new File(directory);
+        File fileToBeModified = new File(filepath);
         BufferedReader reader = new BufferedReader(new FileReader(fileToBeModified));
-    
+        
         int counter = 1;
         String line = reader.readLine();
         while (line != null) {
@@ -73,26 +51,49 @@ public class Editor {
             line = reader.readLine();
             counter += 1;
         }
-    
+        
         BufferedWriter writer = new BufferedWriter(new FileWriter(fileToBeModified));
         writer.write(content);
-    
+        
         reader.close();
         writer.close();
     }
     
-    public void clear() throws IOException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter(directory));
-        writer.write("");
+    public void markAsDone (int taskNo) throws IOException {
+        String content = "";
+        File fileToBeModified = new File(filepath);
+        BufferedReader reader = new BufferedReader(new FileReader(fileToBeModified));
+        
+        int counter = 1;
+        String line = reader.readLine();
+        while (line != null) {
+            if (counter == taskNo)
+            {
+                line = line.replace("[✗]", "[✓]");
+            }
+            content = content + line + System.lineSeparator();
+            line = reader.readLine();
+            counter += 1;
+        }
+        
+        BufferedWriter writer = new BufferedWriter(new FileWriter(fileToBeModified));
+        writer.write(content);
+        
+        reader.close();
         writer.close();
     }
     
-
+    public void addToFile (String type, String description, String date) throws IOException {
+        BufferedWriter update = new BufferedWriter(new FileWriter(filepath, true));
+        String fileContent = type + "|[✗]|" + description + "|" + date + "\n";
+        update.append(fileContent);
+        update.close();
+    }
     
     public ArrayList<Integer> find(String word) throws IOException {
         ArrayList<Integer> row = new ArrayList<Integer>();
         String content = "";
-        File fileToBeModified = new File(directory);
+        File fileToBeModified = new File(filepath);
         BufferedReader reader = new BufferedReader(new FileReader(fileToBeModified));
         
         int counter = 0;

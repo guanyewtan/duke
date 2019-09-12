@@ -1,4 +1,6 @@
-public class Todo extends Task {
+package Processes;
+
+public class Todo extends TaskOld {
 
     public Todo(String description) {
         super(description);

@@ -1,4 +1,6 @@
-public class Event extends Task {
+package Processes;
+
+public class Event extends TaskOld {
 
     protected String at;
 

@@ -1,8 +1,11 @@
-public class Task {
+package Processes;
+
+public class TaskOld {
     protected String description;
     protected boolean isDone;
+    protected String date;
 
-    public Task(String description) {
+    public TaskOld(String description) {
         this.description = description;
         this.isDone = false;
     }
