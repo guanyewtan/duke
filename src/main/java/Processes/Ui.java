@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 
 /**
- * This class deals with all the user input and system output.
+ * Deal with all the user input and system output.
  */
 public class Ui {
     private String fullCommand;
@@ -16,21 +16,21 @@ public class Ui {
     };
     
     /**
-     * This method displays the welcome message.
+     * Displays the welcome message.
      */
     public void showWelcome() {
         System.out.print(line + " Hello! I'm Duke\n" + " What can I do for you?\n" + line);
     }
     
     /**
-     * This method prints a bloody long line.
+     * Prints a bloody long line.
      */
     public void showLine() {
         System.out.print(line);
     }
     
     /**
-     * This method is currently not in use.
+     * Currently not in use.
      * @param errorMessage
      */
     public void showError(String errorMessage) {
@@ -38,7 +38,7 @@ public class Ui {
     }
     
     /**
-     * This method reads in the user command.
+     * Reads in the user command.
      *
      * @return A string of the user command.
      */
@@ -49,7 +49,7 @@ public class Ui {
     }
     
     /**
-     * This method prints a message when a task is added.
+     * Prints a message when a task is added.
      *
      * @param tasks The user's tasks.
      */
@@ -60,7 +60,7 @@ public class Ui {
     }
     
     /**
-     * This method prints a message when a task is deleted.
+     * Prints a message when a task is deleted.
      *
      * @param tasks The user's tasks.
      * @param number The number of the task to be deleted.
@@ -72,7 +72,7 @@ public class Ui {
     }
     
     /**
-     * This method prints a message when the "done" command is run,
+     * Prints a message when the "done" command is run,
      *
      * @param tasks The user's tasks.
      * @param number The number of the task to be marked as done.
@@ -83,7 +83,7 @@ public class Ui {
     }
     
     /**
-     * This method prints the tasks that contain the word that the user wants to search for.
+     * Prints the tasks that contain the word that the user wants to search for.
      *
      * @param tasks The user's tasks.
      * @param storage The object that handles the text document.
@@ -99,7 +99,7 @@ public class Ui {
     }
     
     /**
-     * This method prints all the tasks in tasklist.
+     * Prints all the tasks in tasklist.
      *
      * @param tasks The user's tasks.
      */
@@ -112,14 +112,14 @@ public class Ui {
     }
     
     /**
-     * This method prints a sad message when the user has got to go :(
+     * Prints a sad message when the user has got to go :(
      */
     public void byeCommand() {
         System.out.println("Bye. Hope to see you again soon!\n");
     }
     
     /**
-     * This method is currently not in use.
+     * Currently not in use.
      */
     public void showLoadingError() {
         //Show message: error when loading file

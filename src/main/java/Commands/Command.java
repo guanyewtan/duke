@@ -5,13 +5,13 @@ import Processes.TaskList;
 import Processes.Ui;
 
 /**
- * This class represents the abstract form of the different commands the user can enter.
+ * The abstract form of the different commands the user can enter.
  */
 public abstract class Command {
     boolean isExit = false;
     
     /**
-     * This method executes the user's command and carries out the necessary changes to the other class objects.
+     * Executes the user's command and carries out the necessary changes to the other class objects.
      *
      * @param tasks The tasklist where the user's tasks are stored
      * @param ui The object responsible for system output and user input.
@@ -21,7 +21,7 @@ public abstract class Command {
     public abstract void execute(TaskList tasks, Ui ui, Storage storage) throws DukeException;
     
     /**
-     * This function helps to check if the user has exited the program.
+     * Check if the user has exited the program.
      * @return The state of the attribute "isExit".
      */
     public boolean isExit() {

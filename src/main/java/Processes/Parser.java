@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * This class processes the input that is entered by the user.
+ * Process the input that is entered by the user.
  */
 
 public class Parser {

@@ -3,7 +3,7 @@ package Processes;
 import java.util.ArrayList;
 
 /**
- * This class deals with the array that stores the task details.
+ * Handle the array that stores the task details.
  */
 public class TaskList {
     
@@ -62,7 +62,7 @@ public class TaskList {
     }
     
     /**
-     * This method adds a task to the tasklist array.
+     * Add a task to the tasklist array.
      *
      * @param type The type of task to be added. Either a Todo, Event, or Deadline.
      * @param description The description of the task to be added.
@@ -74,7 +74,7 @@ public class TaskList {
     }
     
     /**
-     * This function returns the size of the tasklist.
+     * Returns the size of the tasklist.
      * @return An integer equal the number of elements in the tasklist.
      */
     public int size() {
@@ -90,7 +90,7 @@ public class TaskList {
     }
     
     /**
-     * This method returns the toString of a task in the tasklist.
+     * Returns the toString of a task in the tasklist.
      *
      * @param number The number of the task to be returned.
      * @return The toString of the task.
@@ -100,7 +100,7 @@ public class TaskList {
     }
     
     /**
-     * This method changes the task to a "done" state.
+     * Changes the task to a "done" state.
      *
      * @param number The number of the task to be set as "done".
      */
@@ -109,7 +109,7 @@ public class TaskList {
     }
     
     /**
-     * This method deletes a task.
+     * Delete a task.
      *
      * @param i The number of the task to be deleted.
      */

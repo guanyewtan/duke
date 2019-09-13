@@ -1,7 +1,7 @@
 package Processes;
 
 /**
- * This class extends the Exception class, and is thrown when an exception or Duke-specific error occurs.
+ * Thrown when an exception or Duke-specific error occurs.
  *
  */
 

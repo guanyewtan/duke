@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 /**
- * This class deals with local storage and modifies the text document that task data is stored in.
+ * Handle the local storage and modifies the text document that task data is stored in.
  */
 
 public class Storage {
@@ -16,7 +16,7 @@ public class Storage {
     }
     
     /**
-     * This method reads the text from the text document that task information is stored, then returns it as a string.
+     * Read the text from the text document that task information is stored, then returns it as a string.
      *
      * @return content A string containing the text from the text document.
      * @throws DukeException
@@ -45,7 +45,7 @@ public class Storage {
     
     
     /**
-     * This method erases a task from the text document.
+     * Erase a task from the text document.
      *
      * @param taskNo The number (row number) of the task to be deleted.
      * @throws IOException
@@ -78,7 +78,7 @@ public class Storage {
     
     
     /**
-     * This method marks a task as done, by editing a variable in the text document.
+     * Mark a task as done, by editing a variable in the text document.
      *
      * @param taskNo The number of the task to be marked as done.
      * @throws IOException
@@ -109,7 +109,7 @@ public class Storage {
     
     
     /**
-     * This method adds a new task to the text document.
+     * Add a new task to the text document.
      *
      * @param type The type of task to be added. Either a ToDo, Event, or Deadline.
      * @param description The description of the task to be added.
@@ -124,7 +124,7 @@ public class Storage {
     }
     
     /**
-     * This method searches for all occurrences of word in the text document.
+     * Search for all occurrences of word in the text document.
      * @param word The word to be searched for.
      * @return row An array that contains the indexes of the tasks which contain the word.
      * @throws IOException
